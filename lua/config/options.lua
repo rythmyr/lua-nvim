@@ -14,3 +14,6 @@ vim.opt.shellquote = ""
 vim.opt.shellxquote = ""
 
 vim.opt.ffs = "unix,dos"
+
+vim.opt.clipboard = ""
+vim.opt.completeopt = "menu,menuone,noselect,noinsert,preview"
