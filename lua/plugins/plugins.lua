@@ -15,5 +15,13 @@ return {
   {
     "TimUntersberger/neogit",
     cmd = "Neogit",
+    keys = {
+      {
+        "<leader>gs",
+        function()
+          require("neogit").open({ cwd = require("lazyvim.util").get_root() })
+        end,
+      },
+    },
   },
 }
