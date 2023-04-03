@@ -39,13 +39,29 @@ return {
       },
       setup = {
         rust_analyzer = function(_, opts)
+          opts = vim.tbl_deep_extend("force", opts, {
+            standalone = false,
+            settings = {
+              ["rust-analyzer"] = {
+                check = {
+                  overrideCommand = {
+                    "cargo",
+                    "clippy",
+                    "--workspace",
+                    "--no-deps",
+                    "--message-format=json",
+                  },
+                },
+              },
+            },
+          })
+
           require("rust-tools").setup({ server = opts })
           return true
         end,
       },
     },
   },
-
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
